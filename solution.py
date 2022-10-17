@@ -4,7 +4,7 @@
 # from a rotten orange
 R = 3
 C = 5
-
+#rr
 # Check if i, j is under the
 # array limits of row and
 # column
