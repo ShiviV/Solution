@@ -12,20 +12,20 @@ def test_answer():
     v = [[2, 1, 0, 2, 1],
          [0, 0, 1, 2, 1],
          [1, 0, 0, 2, 1]]
-    assert solution.rotOranges(v) == -1 
+    assert solution.infection(v) == -1 
     print("Success")
 
 def test_answer_all_zeroes():
     v = [[0, 0, 0, 0, 0],
          [0, 0, 0, 0, 0],
          [0, 0, 0, 0, 0]]
-    assert solution.rotOranges(v) == 0 
+    assert solution.infection(v) == 0 
 
 def test_answer_all_ones():
     v = [[1, 1, 1, 1, 1],
          [1, 1, 1, 1, 1],
          [1, 1, 1, 1, 1]]
-    assert solution.rotOranges(v) == -1 
+    assert solution.infection(v) == -1 
 
 def test_size():
     v = [[2, 1, 0, 2, 1],

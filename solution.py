@@ -18,7 +18,7 @@ def issafe(i, j):
 	return False
 
 
-def rotOranges(v):
+def infection(v):
 
 	changed = False
 	no = 2
@@ -81,6 +81,6 @@ if __name__ == "__main__":
 		[1, 0, 0, 2, 1]]
 
 	print("Max time incurred: ",
-		rotOranges(v))
+		infection(v))
 
 # This code is contributed by Chitranayal
