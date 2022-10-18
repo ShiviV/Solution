@@ -1,15 +1,13 @@
-# Python3 program to rot all
-# oranges when u can move
-# in all the four direction
-# from a rotten orange
+
 R = 3
 C = 5
-#rr
+
 # Check if i, j is under the
 # array limits of row and
 # column
 
-
+import numpy as np
+from num2words import num2words
 def issafe(i, j):
 
 	if (i >= 0 and i < R and
@@ -18,7 +16,7 @@ def issafe(i, j):
 	return False
 
 
-def infection(v):
+def infect(v):
 
 	changed = False
 	no = 2
@@ -26,7 +24,7 @@ def infection(v):
 		for i in range(R):
 			for j in range(C):
 
-				# Rot all other oranges
+				# Infect all infected
 				# present at (i+1, j),
 				# (i, j-1), (i, j+1),
 				# (i-1, j)
@@ -51,8 +49,8 @@ def infection(v):
 						v[i][j - 1] = v[i][j] + 1
 						changed = True
 
-		# if no rotten orange found
-		# it means all oranges rottened
+		# if no infected found
+		# it means all infected
 		# now
 		if (not changed):
 			break
@@ -62,25 +60,89 @@ def infection(v):
 	for i in range(R):
 		for j in range(C):
 
-			# if any orange is found
-			# to be not rotten then
+			# if any uninfected is found
+			# to be not infected then
 			# ans is not possible
 			if (v[i][j] == 1):
 				return -1
 
-	# Because initial value
-	# for a rotten orange was 2
-	return no - 2
+	for i in range(R):
+		for j in range(C):
+
+			# if any uninfected is found
+			# to be not infected then
+			# ans is not possible
+			if (v[i][j] == 0):
+				return -1
+
+
+	
+	no=no-2
+	print(num2words(no))
+	return (no)
+   
+def checksize(v):
+    return(np.shape(v))
+
+
+def take_input():
+	## Python program to take matrix input 
+
+#Take dimension of matrix
+	global R
+	global C
+	R = int(input("Enter the number of rows:"))
+	C = int(input("Enter the number of columns:"))
+
+# Initializing empty matrix
+	A = []
+
+
+# Matrix A user input
+	print (" \n Enter matrix elements(row wise): \n")
+	for i in range(R):		 
+		a =[]
+		for j in range(C):	
+			a.append(int(input()))
+		A.append(a)
+
+
+# Print matrix A
+	print (" \nYou have entered the given matrix  \n")
+	for i in range(R):
+		for j in range(C):
+			#print(A[i][j], end = " ")
+			v=A
+	return(v)
+	print(A)
+
+	
+	#print (" \nInfected \n")
+	
+	
+
+
+
 
 
 # Driver function
 if __name__ == "__main__":
 
-	v = [[2, 1, 0, 2, 1],
-		[1, 0, 1, 2, 1],
-		[1, 0, 0, 2, 1]]
+	v = [[2, 2, 2, 2, 2],
+		[2, 2, 2, 2, 2],
+		[2, 2, 2, 2, 2]]
+	i=int(input("Do you want to enter manually enter 1 or otherwise default matrice will be used"))
 
-	print("Max time incurred: ",
-		infection(v))
+	if(i==1):
+		v=take_input()
+		print(v)
+		print("Max time incurred to infect: ",
+		infect(v))
 
-# This code is contributed by Chitranayal
+	else:
+		print("Max time incurred to infect: ",
+		infect(v))
+	
+
+
+
